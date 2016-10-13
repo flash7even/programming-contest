@@ -55,8 +55,10 @@
 #define NORM(x) if(x>=mod)x-=mod;
 #define MOD(x,y) (((x)*(y))%mod)
 #define ODD(x) (((x)&1)==0?(0):(1))
-#define dbgA(A,i) debug("[",i,"] = ",A[i]);
-#define inpI(x) sf("%d",&x)
+#define dbgA(A,i) debug("[",i,"] = ",A[i])
+#define inpI1(x) sf("%d",&x)
+#define inpI2(x,y) sf("%d %d",&x,&y)
+#define inpI3(x,y,z) sf("%d %d %d",&x,&y,&z)
 #define inpL(x) sf("%lld",&x)
 #define inpD(x) sf("%lf",&x)
 #define pf printf
@@ -64,6 +66,7 @@
 #define LL long long
 #define LLU long long unsigned int
 #define fast_cin ios_base::sync_with_stdio(false);cin.tie(NULL)
+#define pline pf("\n\n/// ================================ ///\n\n")
 
 using namespace std;
 
@@ -152,7 +155,11 @@ const double eps = 1e-9;
 
 ///======================  TEMPLATE ENDS HERE  =====================///
 
+const LL MOD = 1000000007;
+const int Size = 100005;
+
 int N,M;
+int A[Size];
 
 void solve(){
 
@@ -160,14 +167,14 @@ void solve(){
 
 int main () {
     #ifdef forthright48
-    freopen ( "input.txt", "r", stdin );
-    freopen ( "output.txt", "w", stdout );
+    //freopen ( "input.txt", "r", stdin );
+    //freopen ( "output.txt", "w", stdout );
     #endif // forthright48
 
     int nCase;
     sf("%d",&nCase);
     FOR(cs,1,nCase){
-        inpI(N);
+        inpI1(N);
         FOR(i,0,N-1){
 
         }
