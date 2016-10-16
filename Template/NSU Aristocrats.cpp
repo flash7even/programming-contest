@@ -56,11 +56,6 @@
 #define MOD(x,y) (((x)*(y))%mod)
 #define ODD(x) (((x)&1)==0?(0):(1))
 #define dbgA(A,i) debug("[",i,"] = ",A[i])
-#define inpI1(x) sf("%d",&x)
-#define inpI2(x,y) sf("%d %d",&x,&y)
-#define inpI3(x,y,z) sf("%d %d %d",&x,&y,&z)
-#define inpL(x) sf("%lld",&x)
-#define inpD(x) sf("%lf",&x)
 #define pf printf
 #define sf scanf
 #define LL long long
@@ -167,17 +162,14 @@ void solve(){
 
 int main () {
     #ifdef forthright48
-    //freopen ( "input.txt", "r", stdin );
+    freopen ( "input.txt", "r", stdin );
     //freopen ( "output.txt", "w", stdout );
     #endif // forthright48
 
     int nCase;
     sf("%d",&nCase);
     FOR(cs,1,nCase){
-        inpI1(N);
-        FOR(i,0,N-1){
-
-        }
+        
     }
     return 0;
 }
