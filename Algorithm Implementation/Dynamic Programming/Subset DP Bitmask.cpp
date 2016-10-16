@@ -10,6 +10,8 @@ int Set(int N,int pos){
     return N = N | (1<<pos);
 }
 
+/// Problem Link : http://lightoj.com/volume_showproblem.php?problem=1406
+
 int DP[(1 << 16)+5];
 bool visited[16][(1 << 16)+5];
 
