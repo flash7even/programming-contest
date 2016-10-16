@@ -30,32 +30,32 @@ typedef tree <vals, null_type, less<vals>, rb_tree_tag, tree_order_statistics_no
 
 int main(){
     /// Declaring a pb_ds(policy based ds):
-    pb_ds pbds;
+    pb_ds treap;
 
-    pbds.insert(2);
-    pbds.insert(8);
-    pbds.insert(5);
-    pbds.insert(3);
+    treap.insert(2);
+    treap.insert(8);
+    treap.insert(5);
+    treap.insert(3);
     /// Return number of elements smaller than k:
-    cout << pbds.order_of_key(4) << endl; // 2
+    cout << treap.order_of_key(4) << endl; // 2
 
-    /// Clear the pbds:
-    pbds.clear();
+    /// Clear the treap:
+    treap.clear();
 
-    pbds.insert(1);
-    pbds.insert(2);
-    pbds.insert(4);
-    pbds.insert(8);
-    pbds.insert(16);
+    treap.insert(1);
+    treap.insert(2);
+    treap.insert(4);
+    treap.insert(8);
+    treap.insert(16);
 
     /// Return pointer to the k'th smallest number(0-based indexed):
-    cout << *pbds.find_by_order(1) << endl; // 2
-    cout << *pbds.find_by_order(2) << endl; // 4
-    cout << *pbds.find_by_order(4) << endl; // 16
+    cout << *treap.find_by_order(1) << endl; // 2
+    cout << *treap.find_by_order(2) << endl; // 4
+    cout << *treap.find_by_order(4) << endl; // 16
 
-    cout << pbds.order_of_key(-5) << endl;  // 0
-    cout << pbds.order_of_key(11) << endl;  // 4
-    cout << pbds.order_of_key(50) << endl;  // 5
+    cout << treap.order_of_key(-5) << endl;  // 0
+    cout << treap.order_of_key(11) << endl;  // 4
+    cout << treap.order_of_key(50) << endl;  // 5
 
     /// If we want to get map but not the set, as the second argument type must be used mapped type.
 
@@ -71,18 +71,18 @@ int main(){
 
     /// The use of struct type policy based ds:
 
-    pb_ds_st pbds_st;
+    pb_ds_st treap_st;
 
-    pbds_st.insert(vals(1,1));
-    pbds_st.insert(vals(40,2));
-    pbds_st.insert(vals(70,3));
-    pbds_st.insert(vals(15,4));
-    pbds_st.insert(vals(27,5));
-    pbds_st.insert(vals(45,6));
+    treap_st.insert(vals(1,1));
+    treap_st.insert(vals(40,2));
+    treap_st.insert(vals(70,3));
+    treap_st.insert(vals(15,4));
+    treap_st.insert(vals(27,5));
+    treap_st.insert(vals(45,6));
 
     pb_ds_st::iterator it;
 
-    for(it = pbds_st.begin();it!=pbds_st.end();it++){
+    for(it = treap_st.begin();it!=treap_st.end();it++){
         vals v = *it;
         cout << v.num << " " << v.typ << endl;
     }
