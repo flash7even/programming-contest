@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 using namespace std;
 #define Size 100000005
@@ -14,7 +13,7 @@ LL big_mod(LL N,LL P){
 	}
 }
 
-//Repeated Squaring Method :
+/// Repeated Squaring Method :
 LL big_mod (LL b, LL p) {
     LL res = 1LL % MOD, x = b % MOD;
     while (p != 0) {
@@ -23,16 +22,4 @@ LL big_mod (LL b, LL p) {
         p >>= 1LL;
     }
     return res;
-}
-
-LL D,K,H;
-
-int main() {
-	int nCase;
-	scanf("%d",&nCase);
-	for(int cs = 1;cs<=nCase;cs++){
-		scanf("%lld %lld %lld",&D,&K,&H);
-		long long res = big_mod(D,K+1)/(D-1);
-		printf("%lld\n",res);
-	}
 }
