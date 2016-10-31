@@ -52,25 +52,26 @@
 #define ALL(x) (x).begin(),(x).end()
 #define LCM(x,y) (((x)/gcd((x),(y)))*(y))
 #define SZ(x) ((vlong)(x).size())
-#define NORM(x) if(x>=mod)x-=mod;
+#define NORM(x) if(x>=mod) x-=mod;if(x<0) x+=mod;
 #define MOD(x,y) (((x)*(y))%mod)
 #define ODD(x) (((x)&1)==0?(0):(1))
-#define dbgA(A,i) debug("[",i,"] = ",A[i])
-#define pf printf
-#define sf scanf
-#define LL long long
-#define LLU long long unsigned int
+#define Set(N,cur) N=(N|(1LL<<cur))
+#define Reset(N,cur) N=(N&(~(1LL<<cur)))
+#define Check(N,cur) (!((N&(1LL<<cur))==0))
 #define fast_cin ios_base::sync_with_stdio(false);cin.tie(NULL)
-#define pline pf("\n\n/// ================================ ///\n\n")
 
 using namespace std;
 
+
+#define LL long long
+#define LLU long long unsigned int
 typedef long long vlong;
 typedef unsigned long long uvlong;
-typedef pair < vlong, vlong > pll;
 typedef pair < int, int > pii;
-typedef vector<pll> vll;
+typedef pair < vlong, vlong > pll;
+typedef vector<int> vi;
 typedef vector<vlong> vl;
+typedef vector<pll> vll;
 
 #ifdef forthright48
      #include <ctime>
@@ -90,10 +91,6 @@ struct debugger{
         return *this;
     }
 }dbg;
-
-//int knightDir[8][2] = { {-2,1},{-1,2},{1,2},{2,1},{2,-1},{-1,-2},{1,-2},{-2,-1} };
-//int dir4[4][2] = {{-1,0},{0,1},{1,0},{0,-1}};
-//int dir8[8][2] = {{-1,0},{0,1},{1,0},{0,-1},{-1,-1},{1,1},{1,-1},{-1,1}};
 
 inline vlong gcd ( vlong a, vlong b ) {
     a = ABS ( a ); b = ABS ( b );
@@ -140,36 +137,34 @@ inline vlong bigmod ( vlong a, vlong p, vlong m ) {
     return res;
 }
 
-int  Set(int N,int cur){ return N = N | (1<<cur); }
-int  Reset(int N,int cur){ return N = N & ~(1<<cur); }
-bool Check(int N,int cur){ return (bool)(N & (1<<cur)); }
 
+//int knightDir[8][2] = { {-2,1},{-1,2},{1,2},{2,1},{2,-1},{-1,-2},{1,-2},{-2,-1} };
+//int dir4[4][2] = {{-1,0},{0,1},{1,0},{0,-1}};
+//int dir8[8][2] = {{-1,0},{0,1},{1,0},{0,-1},{-1,-1},{1,1},{1,-1},{-1,1}};
 const vlong inf = 2147383647;
+const vlong mod = 1000000007;
 const double pi = 2 * acos ( 0.0 );
 const double eps = 1e-9;
 
 ///======================  TEMPLATE ENDS HERE  =====================///
 
-const LL MOD = 1000000007;
-const int Size = 100005;
 
-int N,M;
-int A[Size];
-
-void solve(){
-
-}
+/** WARNING WARNING WARNING **/
+//  1. Simulate Sample Test Case Before Coding
+//  2. Read Input & Output Format Before Coding
+//  3. Check Corner Case Specially When N<3
+//  4. Check Array Size, Mod Value & Long Long
+//  5. Check DP Memoization Part & Call Parameters
+//  6. Check Problem No When Submitting
 
 int main () {
     #ifdef forthright48
     freopen ( "input.txt", "r", stdin );
     //freopen ( "output.txt", "w", stdout );
     #endif // forthright48
+    
+    //fast_cin;
 
-    int nCase;
-    sf("%d",&nCase);
-    FOR(cs,1,nCase){
-        
-    }
+
     return 0;
 }
