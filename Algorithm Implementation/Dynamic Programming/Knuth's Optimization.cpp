@@ -189,8 +189,23 @@ void costFunc(){
     }
 }
 
+/// Check if knuth conditions are valid:
+void knuthValidation(){
+    int a,b,c,d;
+    FOR(i,1,10){
+        scanf("%d %d %d %d",&a,&b,&c,&d);
+        int acbd = cost[a][c] + cost[b][d];
+        int adbc = cost[a][d] + cost[b][c];
+        int bc = cost[b][c];
+        int ad = cost[a][d];
+        printf("   Rule 1: %d <= %d ???\n",acbd,adbc);
+        printf("   Rule 2: %d <= %d ???\n",bc,ad);
+    }
+}
+
 int solve(){
     costFunc();
+    knuthValidation();
     FOR(k,1,M){
         mid[N+1][k] = N;
     }
