@@ -14,7 +14,3 @@ void factFactorize ( LL n ) {
         printf ( "%lld^%lld\n", pFactor[i], freq );
     }
 }
-
-int main() {
-	
-}

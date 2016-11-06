@@ -1,6 +1,6 @@
+/// Include My Code Template
 #include <bits/stdc++.h>
 using namespace std;
-#define Size 1000005
 
 int N,Q,W;
 int coin[Size];

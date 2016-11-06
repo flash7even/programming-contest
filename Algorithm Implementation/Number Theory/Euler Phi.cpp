@@ -19,10 +19,3 @@ void euler_phi(){
 	}
 
 }
-
-int main() {
-	euler_phi();
-	for(int i= 1;i<=50;i++){
-		printf("i: %d = %d\n",i,phi[i]);
-	}
-}

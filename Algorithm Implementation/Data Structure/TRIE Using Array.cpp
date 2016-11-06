@@ -5,13 +5,14 @@ using namespace std;
 /// This approach is memory efficient.
 /// But depending on the problem statements we may need recursive approach.
 
-struct trie {
-    struct node {
-        int cnt;
-        int child[55];
-    };
-    node tree[Size];
+struct node {
+    int cnt;
+    int child[55];
+};
 
+node tree[Size];
+
+struct trie {
     void clear_new_node() {
         /// Whenever we create a new node we must initialize it.
         tree[node_ID].cnt = 0;

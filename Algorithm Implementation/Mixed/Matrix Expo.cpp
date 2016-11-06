@@ -1,11 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define pf printf
-#define sf scanf
-#define LL long long
-#define Size 100005
-#define INF (1<<30)
-#define MOD 10007
 
 struct matrix{
     LL m[4][4];

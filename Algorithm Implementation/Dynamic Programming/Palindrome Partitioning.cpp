@@ -1,10 +1,8 @@
-#include<bits/stdc++.h>
+/// Include My Code Template
+#include <bits/stdc++.h>
 using namespace std;
 
-#define Size 1005
-#define Max 100005
-#define INF (1<<30)
-#define Mod 1000000007
+/// Minimum no of partition we can make such that each partition is palindrome.
 
 int Len;
 char s[1005];

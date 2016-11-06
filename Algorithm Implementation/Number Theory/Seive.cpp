@@ -17,17 +17,10 @@ void seive(){
                 mark [j] = false;
         }
     }
-    pL.push_back (2);
+    pL.pb (2);
     for(int i=3;i<Size;i+=2){
         if(mark[i]){
-            pL.push_back (i);
+            pL.pb (i);
         }
-    }
-}
-
-int main(){
-    seive();
-    for(int i = 0;i<30;i++){
-        cout<<"I : "<<(i+1)<<" = "<<pL[i]<<endl;
     }
 }

@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>
+/// Include My Code Template
+#include <bits/stdc++.h>
 using namespace std;
 
 /// 0/1 Knapsack Problem
@@ -33,7 +34,7 @@ int solve(int N, int W) {
 void solution_print(int i, int k) {
 	while (i > 0 && k > 0) {
 		if (DP[i][k] != DP[i - 1][k]) {
-			sol.push_back(i); // Mark the item that must take
+			sol.push_back(i); /// Mark the item that must take
 			k = k - weight[i];
 		}
 		i = i - 1;
@@ -41,14 +42,14 @@ void solution_print(int i, int k) {
 }
 
 int main() {
-	int N, W; // N is the number of items and W is maximum weight
+	int N, W; /// N is the number of items and W is maximum weight
 	cin >> N >> W;
 	for (int i = 1; i <= N; i++){
 		cin >> price[i] >> weight[i];
 	}
 	cout << solve(N, W) << endl;
-	// Print Solution
-	// Taking which items that makes maximizing price
+	/// Print Solution
+	/// Taking which items that makes maximizing price
 	solution_print(N, W);
 	for (int i = 0; i < (int)sol.size(); i++){
 		cout << sol[i] << " ";

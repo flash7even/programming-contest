@@ -1,9 +1,6 @@
-#include<bits/stdc++.h>
+/// Include My Code Template
+#include <bits/stdc++.h>
 using namespace std;
-
-#define Size 100005
-#define INF (1<<30)
-#define MOD 1000000007
 
 LL fact[30];
 LL cnt[30];
@@ -41,14 +38,10 @@ void call(int rem,int cur){
 }
 
 int main(){
-    //fast_cin;
-    #ifdef forthright48
-    //read("input.txt");
-    //write("output.txt");
-    #endif //forthright48
 
     fact[0] = 1;
     for(LL i = 1;i<22;i++) fact[i] = i*fact[i-1];
+
 	int nCase;
 	cin >> nCase;
 	for(int cs = 1;cs<=nCase;cs++){
