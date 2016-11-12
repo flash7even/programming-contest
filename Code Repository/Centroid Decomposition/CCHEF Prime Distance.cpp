@@ -202,11 +202,11 @@ LL findRes(int u,int p,int level,int dist){
 		if(Prime[i] != dist){ /// Not root
 			ret += ndist[level][Prime[i]-dist];
 			/// We don't need to multiply by 2
-			/// Because eventually this path will be counted twice :Prime
+			/// Because eventually this path will be counted twice
 		}else{
 			ret += 2*ndist[level][Prime[i]-dist];
 			/// Path from current node to the root
-			/// Multiply by 2 so that this path is counted twice.
+			/// Multiply by 2 so that this path is counted twice
 		}
 	}
 
