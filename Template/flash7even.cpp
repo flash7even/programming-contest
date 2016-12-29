@@ -52,6 +52,13 @@ struct debugger{
     }
 }dbg;
 
+#define LL long long
+#define LLU long long unsigned int
+typedef long long vlong;
+typedef unsigned long long uvlong;
+typedef pair < int, int > pii;
+typedef pair < vlong, vlong > pll;
+
 inline vlong gcd ( vlong a, vlong b ) {
     a = ABS ( a ); b = ABS ( b );
     while ( b ) { a = a % b; swap ( a, b ); } return a;
@@ -105,13 +112,6 @@ inline LL SQRT(LL a){
     else if(SQ(v+2) == a) return v+2;
     else return -1; /// a can no be written as p^2
 }
-
-#define LL long long
-#define LLU long long unsigned int
-typedef long long vlong;
-typedef unsigned long long uvlong;
-typedef pair < int, int > pii;
-typedef pair < vlong, vlong > pll;
 
 //int knightDir[8][2] = { {-2,1},{-1,2},{1,2},{2,1},{2,-1},{-1,-2},{1,-2},{-2,-1} };
 //int dir4[4][2] = {{-1,0},{0,1},{1,0},{0,-1}};
