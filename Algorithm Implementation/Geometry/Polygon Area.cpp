@@ -1,7 +1,3 @@
-/// Include My Code Template
-#include <bits/stdc++.h>
-using namespace std;
-
 struct Point {
 	int x, y;
 };

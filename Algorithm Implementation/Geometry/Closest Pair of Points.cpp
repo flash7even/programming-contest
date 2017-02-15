@@ -1,11 +1,6 @@
-/**
-    Given N points find the distance of the closest two points.
-    Complexity : O(n (Logn))
- **/
-
-/// Include My Code Template
-#include <bits/stdc++.h>
-using namespace std;
+/// Given N points find the distance of the closest two points.
+/// Complexity : O(n (Logn))
+/// Driver function: solve().
 
 struct Point {
 	double x, y;
@@ -92,17 +87,4 @@ double solve(Point P[], int N) {
 	sort(Px,Px+N,cmpX);
 	sort(Py,Py+N,cmpY);
 	return call(Px, Py, N);
-}
-
-Point A[100005];
-int N;
-
-int main() {
-	scanf("%d",&N);
-	for(int i = 0;i<N;i++){
-		scanf("%lf %lf",&A[i].x,&A[i].y);
-	}
-	double res = solve(A,N);
-	printf("%lf\n",res);
-	return 0;
 }

@@ -1,11 +1,6 @@
-/**
-    Line Segments Intersection.
-    Check whether two line segments intersect with each other or not.
-**/
-
-/// Include My Code Template
-#include <bits/stdc++.h>
-using namespace std;
+/// Whether two line segments intersect or not.
+/// Driver function: doIntersect().
+/// Complexity: O(1).
 
 struct Point {
 	int x, y;
@@ -22,6 +17,7 @@ int orientation(Point P, Point Q, Point R) {
 	else return 0;
 }
 
+/// Check if R lies on line segment (P - Q):
 bool onSegment(Point P, Point Q, Point R) {
 	if (R.x >= min(P.x, Q.x) && R.x <= max(P.x, Q.x) &&
 			R.y >= min(P.y, Q.y) && R.y <= max(P.y, Q.y)){
@@ -31,6 +27,7 @@ bool onSegment(Point P, Point Q, Point R) {
 	}
 }
 
+/// Check if line segment (P1 - P2) and line segment (P3 - P4) intersect:
 bool doIntersect(Point P1, Point P2, Point P3, Point P4) {
 	int o1 = orientation(P1, P2, P3);
 	int o2 = orientation(P1, P2, P4);
@@ -46,22 +43,4 @@ bool doIntersect(Point P1, Point P2, Point P3, Point P4) {
 	if (o3 == 0 && onSegment(P3, P4, P1)) return true;
 	if (o4 == 0 && onSegment(P3, P4, P2)) return true;
 	return false;
-}
-
-int main() {
-	/// P1 and P2 point create a line segment.
-	/// P1 and P4 point create another line segment.
-	Point P1, P2, P3, P4;
-
-	/// Take input the coordinate of 4 points.
-	P1 = {1,1};
-	P2 = {10,1};
-	P3 = {1,2};
-	P4 = {10,2};
-	if (doIntersect(P1, P2, P3, P4)){
-		cout << "YES\n";
-	} else {
-		cout << "NO\n";
-	}
-	return 0;
 }
