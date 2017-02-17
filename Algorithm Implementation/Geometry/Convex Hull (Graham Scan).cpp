@@ -4,12 +4,14 @@
 
 struct Point {
 	LL x, y;
+	Point(){}
 };
 
 Point List[Size];
 Point Hull[Size];
 stack<Point> st;
-int N,cnt;
+Point lowerLeft;
+int N;
 
 LL dist(Point P, Point Q) {
 	return (P.x - Q.x) * (P.x - Q.x) + (P.y - Q.y) * (P.y - Q.y);
@@ -23,10 +25,10 @@ LL orientation(Point P, Point Q, Point R) {
 }
 
 bool cmp(Point X, Point Y) {
-	LL ret = orientation(List[0], X, Y);
+	LL ret = orientation(lowerLeft, X, Y);
 	if (ret == 0) {
-		LL dist1 = dist(List[0], X);
-		LL dist2 = dist(List[0], Y);
+		LL dist1 = dist(lowerLeft, X);
+		LL dist2 = dist(lowerLeft, Y);
 		return (dist1 < dist2);
 	} else if (ret == 2){
 		return true;
@@ -43,7 +45,8 @@ Point nextToTop() {
 	return res;
 }
 
-void convexHull(int N){
+vector<Point> convexHull(vector<Point> List){
+	int N = List.size();
 	int ymin = List[0].y, idx = 0;
 	for (int i = 1; i < N; i++) {
 		if (List[i].y < ymin || (List[i].y == ymin &&
@@ -52,8 +55,11 @@ void convexHull(int N){
 			idx = i;
 		}
 	}
+
 	swap(List[0], List[idx]);
-	sort(&List[1], &List[N], cmp);
+	lowerLeft = List[0];
+
+	sort(ALL(List), cmp);
 	st.push(List[0]);
 
 	for (int i = 1; i < N; i++) {
@@ -63,9 +69,10 @@ void convexHull(int N){
 		}
 		st.push(List[i]);
 	}
-	cnt = 0;
+	vector<Point> Hull;
 	while (!st.empty()) {
-		Hull[cnt++] = st.top();
+		Hull.pb(st.top());
 		st.pop();
 	}
+	return Hull;
 }

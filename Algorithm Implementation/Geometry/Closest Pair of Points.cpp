@@ -1,4 +1,4 @@
-/// Given N points find the distance of the closest two points.
+/// Given N points find the distance between the closest two points.
 /// Complexity : O(n (Logn))
 /// Driver function: solve().
 
