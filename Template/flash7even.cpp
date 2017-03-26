@@ -2,9 +2,6 @@
 using namespace std;
 
 #define pb push_back
-#define nl puts ("")
-#define sp printf ( " " )
-#define phl printf ( "hello\n" )
 #define ff first
 #define ss second
 #define POPCOUNT __builtin_popcountll
@@ -15,8 +12,6 @@ using namespace std;
 #define ROF(i,x,y) for(vlong i = (y) ; i >= (x) ; --i)
 #define CLR(x,y) memset(x,y,sizeof(x))
 #define UNIQUE(V) (V).erase(unique((V).begin(),(V).end()),(V).end())
-#define MIN(a,b) ((a)<(b)?(a):(b))
-#define MAX(a,b) ((a)>(b)?(a):(b))
 #define NUMDIGIT(x,y) (((vlong)(log10((x))/log10((y))))+1)
 #define SQ(x) ((x)*(x))
 #define ABS(x) ((x)<0?-(x):(x))
@@ -24,14 +19,17 @@ using namespace std;
 #define ALL(x) (x).begin(),(x).end()
 #define LCM(x,y) (((x)/gcd((x),(y)))*(y))
 #define SZ(x) ((vlong)(x).size())
-#define NORM(x) if(x>=mod) x-=mod;if(x<0) x+=mod;
-#define MOD(x,y) (((x)*(y))%mod)
-#define ODD(x) (((x)&1)==0?(0):(1))
 #define Set(N,cur) N=(N|(1<<cur))
 #define Reset(N,cur) N=(N&(~(1<<cur)))
 #define Check(N,cur) (!((N&(1<<cur))==0))
-#define dbgA(A,i) debug("At pos: ",i," = ",A[i])
 #define fast_cin ios_base::sync_with_stdio(false);cin.tie(NULL)
+#define nl printf("\n")
+#define phl printf ("hello world\n")
+#define dbgA(A,i) debug("@At pos: ",i," = ",A[i])
+#define dbg(x) debug("@Print: ",x)
+#define spc(N) FOR(i,0,N) cout<<" "
+#define printArray(A,st,ed) cout<<"@Array:";FOR(i,st,ed) cout<<" "<<A[i];cout<<endl
+#define LINE printf("\n"); FOR(i,0,50) printf("=");printf("\n\n")
 
 #ifdef forthright48
      #include <ctime>
@@ -105,27 +103,18 @@ inline int STRLEN(char *s){
     int p = 0; while(s[p]) p++; return p;
 }
 
-inline LL SQRT(LL a){
-    LL v = sqrt(a);
-    if(SQ(v) == a) return v;
-    else if(SQ(v+1) == a) return v+1;
-    else if(SQ(v+2) == a) return v+2;
-    else return -1; /// a can no be written as p^2
-}
-
 //int knightDir[8][2] = { {-2,1},{-1,2},{1,2},{2,1},{2,-1},{-1,-2},{1,-2},{-2,-1} };
 //int dir4[4][2] = {{-1,0},{0,1},{1,0},{0,-1}};
 //int dir8[8][2] = {{-1,0},{0,1},{1,0},{0,-1},{-1,-1},{1,1},{1,-1},{-1,1}};
 
-const vlong inf = 2147383647;
-const vlong mod = 1000000007;
+const LL inf = 2147383647;
+const LL mod = 1e9 + 7;
 const double pi = 2 * acos ( 0.0 );
 const double eps = 1e-9;
+const int Size = 200005;
 
 ///=========================  TEMPLATE ENDS HERE  ========================///
 ///=======================================================================///
-
-const int Size = 200005;
 
 int N,M,K;
 int A[Size];
@@ -140,13 +129,6 @@ int main () {
     /// freopen ( "input.txt", "r", stdin );
     /// freopen ( "output.txt", "w", stdout );
     #endif // forthright48
-
-    /// ========= WARNING CHECK ========= ///
-    ///   1. Check Sample Test,Read Notes ///
-    ///   2. Check Corner Case When N<3   ///
-    ///   3. Check Array Size, Mod, LL    ///
-    ///   4. Check DP Memo Array Part     ///
-    ///===================================///
 
     int nCase;
     scanf("%d",&nCase);
