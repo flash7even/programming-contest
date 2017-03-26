@@ -27,7 +27,7 @@ using namespace std;
 #define phl printf ("hello world\n")
 #define dbgA(A,i) debug("@At pos: ",i," = ",A[i])
 #define dbg(x) debug("@Print: ",x)
-#define spc(N) FOR(i,0,N) cout<<" "
+#define spc(N) FOR(i,0,N-1) cout<<" "
 #define printArray(A,st,ed) cout<<"@Array:";FOR(i,st,ed) cout<<" "<<A[i];cout<<endl
 #define LINE printf("\n"); FOR(i,0,50) printf("=");printf("\n\n")
 
