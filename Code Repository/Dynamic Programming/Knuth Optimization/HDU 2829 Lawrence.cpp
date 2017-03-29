@@ -167,9 +167,9 @@ int N,M;
 int A[Size];
 int mid[Size][Size];
 int DP[Size][Size];
-/// DP[i][k] = Minimum total cost to partition the sub array (1 - i) into k groups.
+/// DP[i][k] = Minimum total cost to divide first i positions into k partitions.
 /// Where the k'th partition is at position i.
-int cost[Size][Size];
+int cost[Size][Size]; /// cost[i][j] = cost of the partiton i - j.
 int csum[Size];
 
 /// Knuth's Conditions:
