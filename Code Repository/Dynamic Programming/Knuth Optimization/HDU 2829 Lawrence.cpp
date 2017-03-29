@@ -167,6 +167,8 @@ int N,M;
 int A[Size];
 int mid[Size][Size];
 int DP[Size][Size];
+/// DP[i][k] = Minimum total cost to partition the sub array (1 - i) into k groups.
+/// Where the k'th partition is at position i.
 int cost[Size][Size];
 int csum[Size];
 
