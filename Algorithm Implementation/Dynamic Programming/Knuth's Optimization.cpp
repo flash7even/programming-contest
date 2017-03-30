@@ -1,14 +1,14 @@
-/// Include My Code Template
 #include <bits/stdc++.h>
 using namespace std;
+const int inf = 1e30;
 
 /**
-    The problem can be easily solved by old fashioned DP approach.
-    But the complexity will become N^2*M which'll get TLE.
-    Notice here, we don't need to run the middle loop for each interval.
-    There is a quadrangle inequality here which satisfy knuth's conditions.
-    So we can apply Knuth's optimization.
-    Link : https://www.quora.com/What-is-Knuths-optimization-in-dynamic-programming
+The problem can be easily solved by old fashioned DP approach.
+But the complexity will become (N^2)*M which'll surely get TLE.
+Notice here, we don't need to run the middle loop for each interval.
+There is a quadrangle inequality here which satisfy knuth's conditions.
+So we can apply Knuth's optimization.
+Link : https://www.quora.com/What-is-Knuths-optimization-in-dynamic-programming
 **/
 
 #define Size 1005
@@ -17,6 +17,8 @@ int N,M;
 int A[Size];
 int mid[Size][Size];
 int DP[Size][Size];
+/// DP[i][k] = Minimum total cost to divide first i positions into k partitions.
+/// Where the k'th partition ends at position i.
 int cost[Size][Size];
 int csum[Size];
 
@@ -29,38 +31,50 @@ int csum[Size];
 /// cost[b][c] <= cost[a][d] (monotonicity).
 
 void costFunc(){
-    FOR(i,1,N){
+    for(int i = 1;i<=N;i++){
         csum[i] = A[i];
         cost[i][i] = 0;
-        FOR(j,i+1,N){
+        for(int j = i+1;j<=N;j++){
             csum[j] = csum[j-1] + A[j];
             cost[i][j] = cost[i][j-1] + csum[j-1]*A[j];
         }
     }
 }
 
-/// Check if knuth conditions are valid:
-void knuthValidation(){
+/// Check if the cost function satisfy knuth conditions:
+
+bool knuthValidation(int N, int K){
     int a,b,c,d;
-    FOR(i,1,10){
-        scanf("%d %d %d %d",&a,&b,&c,&d);
-        int acbd = cost[a][c] + cost[b][d];
-        int adbc = cost[a][d] + cost[b][c];
+    /// a,b <= N and b,c <= K
+    for(int i = 0;i<1000;i++){
+        a = rand()%N; b = rand()%N;
+        if(a == 0) a = N; if(b == 0) b = N;
+        if(a == b) a--; if(a <= 0) a = N;
+        if(b<a) swap(a,b);
+
+        c = rand()%K; d = rand()%K;
+        if(c == 0) c = K; if(d == 0) d = K;
+        if(c == d) c--; if(c <= 0) c = K;
+        if(d<c) swap(c,d);
+
+        int ac_bd = cost[a][c] + cost[b][d];
+        int ad_bc = cost[a][d] + cost[b][c];
         int bc = cost[b][c];
         int ad = cost[a][d];
-        printf("   Rule 1: %d <= %d ???\n",acbd,adbc);
-        printf("   Rule 2: %d <= %d ???\n",bc,ad);
+        if(ac_bd > ad_bc || bc > ad){
+            printf("Knuth Condition Mismatch for (a, b, c, d) = (%d, %d, %d, %d)\n",a,b,c,d);
+            return false;
+        }
     }
+    return true;
 }
 
-int solve(){
-    costFunc();
-    knuthValidation();
-    FOR(k,1,M){
+int knuthOptimization(){
+    for(int k = 1;k<=M;k++){
         mid[N+1][k] = N;
     }
 
-    FOR(i,1,N){
+    for(int i = 1;i<=N;i++){
         DP[i][1] = cost[1][i];
         mid[i][1] = 0;
     }
@@ -84,20 +98,19 @@ int solve(){
     return DP[N][M];
 }
 
-int main () {
-    #ifdef forthright48
-    freopen ( "input.txt", "r", stdin );
-    //freopen ( "output.txt", "w", stdout );
-    #endif // forthright48
+int solve(){
+    costFunc();
+    if(knuthValidation(N, M) == false) return -1;
+    return knuthOptimization();
+}
 
-    while(sf("%d %d",&N,&M) == 2){
-        if(N == 0 && M == 0) break;
-        M++;
-        FOR(i,1,N){
-            inpI(A[i]);
-        }
-        int res = solve();
-        pf("%d\n",res);
+int main () {
+    scanf("%d %d",&N,&M);
+    M++;
+    for(int i = 1;i<=N;i++){
+        scanf("%d",&(A[i]));
     }
+    int res = solve();
+    printf("%d\n",res);
     return 0;
 }
