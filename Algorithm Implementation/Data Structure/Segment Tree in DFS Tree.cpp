@@ -1,7 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-#define pb push_back
-
 /// Given a tree(rooted with 1) having N nodes and their initial weight
 /// We have to handle two types of query
 /// 1 u: Return sum of the weight of all nodes in subtree u

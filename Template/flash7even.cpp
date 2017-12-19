@@ -1,35 +1,59 @@
+///====================== TEMPLATE STARTS HERE =====================///
 #include <bits/stdc++.h>
 using namespace std;
 
+//#include <ext/pb_ds/assoc_container.hpp> // Include for built in treap
+//#include <ext/pb_ds/tree_policy.hpp>
+//using namespace __gnu_pbds;
+
+//#include <sys/resource.h>     // for linux stack memory increase
+//#define gc getchar_unlocked   // for linux fast io
+//#define gc getchar            // for windows fast io
+
 #define pb push_back
+#define MP make_pair
 #define ff first
 #define ss second
-#define POPCOUNT __builtin_popcountll
-#define RIGHTMOST __builtin_ctzll
-#define LEFTMOST(x) (63-__builtin_clzll((x)))
-#define MP make_pair
+#define nl puts("")
+#define sp printf(" ")
+#define phl debug("Hello")
 #define FOR(i,x,y) for(vlong i = (x) ; i <= (y) ; ++i)
 #define ROF(i,x,y) for(vlong i = (y) ; i >= (x) ; --i)
 #define CLR(x,y) memset(x,y,sizeof(x))
+#define ALL(x) (x).begin(),(x).end()
+#define SZ(x) ((vlong)(x).size())
 #define UNIQUE(V) (V).erase(unique((V).begin(),(V).end()),(V).end())
-#define NUMDIGIT(x,y) (((vlong)(log10((x))/log10((y))))+1)
-#define SQ(x) ((x)*(x))
+#define MIN(a,b) ((a)<(b)?(a):(b))
+#define MAX(a,b) ((a)>(b)?(a):(b))
 #define ABS(x) ((x)<0?-(x):(x))
 #define FABS(x) ((x)+eps<0?-(x):(x))
-#define ALL(x) (x).begin(),(x).end()
+#define SQ(x) ((x)*(x))
 #define LCM(x,y) (((x)/gcd((x),(y)))*(y))
-#define SZ(x) ((vlong)(x).size())
-#define Set(N,cur) N=(N|(1<<cur))
-#define Reset(N,cur) N=(N&(~(1<<cur)))
-#define Check(N,cur) (!((N&(1<<cur))==0))
+#define POPCOUNT __builtin_popcountll
+#define RIGHTMOST __builtin_ctzll
+#define LEFTMOST(x) (63-__builtin_clzll((x)))
+#define NUMDIGIT(x,y) (((vlong)(log10((x))/log10((y))))+1)
+#define NORM(x) if(x>=mod) x-=mod;if(x<0) x+=mod;
+#define ODD(x) (((x)&1)==0?(0):(1))
+#define Set(N,p) N=((N)|((1LL)<<(p)))
+#define Reset(N,p) N=((N)&(~((1LL)<<(p))))
+#define Check(N,p) (!(((N)&((1LL)<<(p)))==(0)))
 #define fast_cin ios_base::sync_with_stdio(false);cin.tie(NULL)
-#define nl printf("\n")
-#define phl printf ("hello world\n")
-#define dbgA(A,i) debug("@At pos: ",i," = ",A[i])
-#define dbg(x) debug("@Print: ",x)
-#define spc(N) FOR(i,0,N-1) cout<<" "
-#define printArray(A,st,ed) cout<<"@Array:";FOR(i,st,ed) cout<<" "<<A[i];cout<<endl
-#define LINE printf("\n"); FOR(i,0,50) printf("=");printf("\n\n")
+#define arrayIndexPrint(A,i) cerr<<"~ At pos: "<<i<<" = "<<A[i]
+#define dump(x) cerr<<"~ "<<#x<<" = "<<x<<endl
+#define arrayPrint(A,st,ed) cerr<<"~ Array:";FOR(i,st,ed) cerr<<" "<<A[i];cerr<<endl
+#define LINE cerr<<"\n"; FOR(i,0,50) cerr<<"=";cerr<<"\n\n"
+
+#define LL long long
+#define LLU long long unsigned int
+typedef long long vlong;
+typedef unsigned long long uvlong;
+typedef pair < int, int > pii;
+typedef pair < vlong, vlong > pll;
+typedef vector<int> vi;
+typedef vector<vlong> vl;
+typedef vector<pll> vll;
+//typedef tree <int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> pb_ds;
 
 #ifdef forthright48
      #include <ctime>
@@ -39,8 +63,8 @@ using namespace std;
      #define bug printf("%d\n",__LINE__);
 
 #else
-     #define debug(args...)  // Just strip off all debug tokens
-     #define timeStamp
+    #define debug(args...)  // Just strip off all debug tokens
+    #define timeStamp
 #endif
 
 struct debugger{
@@ -50,13 +74,6 @@ struct debugger{
     }
 }dbg;
 
-#define LL long long
-#define LLU long long unsigned int
-typedef long long vlong;
-typedef unsigned long long uvlong;
-typedef pair < int, int > pii;
-typedef pair < vlong, vlong > pll;
-
 inline vlong gcd ( vlong a, vlong b ) {
     a = ABS ( a ); b = ABS ( b );
     while ( b ) { a = a % b; swap ( a, b ); } return a;
@@ -64,10 +81,13 @@ inline vlong gcd ( vlong a, vlong b ) {
 
 vlong ext_gcd ( vlong A, vlong B, vlong *X, vlong *Y ){
     vlong x2, y2, x1, y1, x, y, r2, r1, q, r;
-    x2 = 1; y2 = 0; x1 = 0; y1 = 1;
+    x2 = 1; y2 = 0;
+    x1 = 0; y1 = 1;
     for (r2 = A, r1 = B; r1 != 0; r2 = r1, r1 = r, x2 = x1, y2 = y1, x1 = x, y1 = y ) {
-        q = r2 / r1; r = r2 % r1;
-        x = x2 - (q * x1); y = y2 - (q * y1);
+        q = r2 / r1;
+        r = r2 % r1;
+        x = x2 - (q * x1);
+        y = y2 - (q * y1);
     }
     *X = x2; *Y = y2;
     return r2;
@@ -81,60 +101,35 @@ inline vlong modInv ( vlong a, vlong m ) {
     return x;
 }
 
-inline vlong power ( vlong a, vlong p ) {
-    vlong res = 1, x = a;
-    while ( p ) {
-        if ( p & 1 ) res = ( res * x );
-        x = ( x * x ); p >>= 1;
-    }
-    return res;
-}
-
 inline vlong bigmod ( vlong a, vlong p, vlong m ) {
     vlong res = 1 % m, x = a % m;
     while ( p ) {
         if ( p & 1 ) res = ( res * x ) % m;
-        x = ( x * x ) % m; p >>= 1;
+        x = ( x * x ) % m; p >>= 1; /// For bigmod2 multiply here using mulmod
     }
     return res;
 }
 
-inline int STRLEN(char *s){
-    int p = 0; while(s[p]) p++; return p;
-}
 
 //int knightDir[8][2] = { {-2,1},{-1,2},{1,2},{2,1},{2,-1},{-1,-2},{1,-2},{-2,-1} };
 //int dir4[4][2] = {{-1,0},{0,1},{1,0},{0,-1}};
 //int dir8[8][2] = {{-1,0},{0,1},{1,0},{0,-1},{-1,-1},{1,1},{1,-1},{-1,1}};
-
-const LL inf = 2147383647;
-const LL mod = 1e9 + 7;
+const vlong inf = 2147383647;
+const vlong mod = 1000000007;
 const double pi = 2 * acos ( 0.0 );
-const double eps = 1e-9;
-const int Size = 200005;
+const double eps = 1e-11;
 
-///=========================  TEMPLATE ENDS HERE  ========================///
-///=======================================================================///
+///======================  TEMPLATE ENDS HERE  =====================///
 
-int N,M,K;
-int A[Size];
 
-void solve(){
-
-}
 
 int main () {
-
     #ifdef forthright48
-    /// freopen ( "input.txt", "r", stdin );
-    /// freopen ( "output.txt", "w", stdout );
+    freopen ( "input.txt", "r", stdin );
+    //freopen ( "output.txt", "w", stdout );
     #endif // forthright48
 
-    int nCase;
-    scanf("%d",&nCase);
-    for(int cs = 1;cs<=nCase;cs++){
-        scanf("%d",&N);
+    //fast_cin;
 
-    }
     return 0;
 }
