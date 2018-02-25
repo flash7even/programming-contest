@@ -3,7 +3,7 @@
     1. Properly define the values of the const variables
     2. Call clear()
     3. Add each pattern by calling addTrie()
-    4. Call calcFailFunction() to find failure of each node
+    4. Call failureFunction() to find failure of each node
     5. Call findmatching() to find the matching of each patterns
     6. qfound[i] = Number of times i'th pattern matched
 **/
@@ -61,7 +61,7 @@ struct AhoCorasick{
         trie[cur].endList.pb(id);
     }
 
-    void calcFailFunction(){
+    void failureFunction(){
         queue<int> Q;
         Q.push(root);
         while(!Q.empty()){
