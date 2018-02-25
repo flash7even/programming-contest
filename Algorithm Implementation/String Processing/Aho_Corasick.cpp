@@ -86,7 +86,7 @@ struct AhoCorasick{
             int p = par[s];
             int val = trie[s].val;
             int f = fail[p];
-            /// Fall back till you found a node who has got val as a child
+            /// Fall back till you find a node who has got val as a child
             while(f != 0 && trie[f].child[val] == 0){
                 f = fail[f];
             }
