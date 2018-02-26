@@ -3,8 +3,8 @@
 struct KMP{
     string text, pat;
     int txtLen, patLen;
-    int LPS[MXL];
-    /// LPS[i] = maximum length of suffix at i which is also the prefix
+    int fail[MXL];
+    /// fail[i] = maximum length of suffix at i which is also the prefix of pat
 
     void clear(string &t, string &p){
         text = t, pat = p;
@@ -13,18 +13,18 @@ struct KMP{
     }
 
     void failureFunction(){
-        LPS[0] = 0;
+        fail[0] = 0;
         int j = 0, i = 1;
         while(i<patLen){
             if(pat[j] == pat[i]){
                 j++;
-                LPS[i] = j;
+                fail[i] = j;
                 i++;
             }else if(j == 0){
-                LPS[i] = 0;
+                fail[i] = 0;
                 i++;
             }else{
-                j = LPS[j-1];
+                j = fail[j-1];
             }
         }
     }
@@ -34,16 +34,17 @@ struct KMP{
         while(i<txtLen) {
             if(text[i] == pat[j]){
                 i++; j++;
-            }
-            if(j == patLen){  /// Found a pattern, save and fall back
-                j = LPS[j-1];
-            }else if(i<txtLen && text[i] != pat[j]){ /// Fall back
-                if(j != 0){
-                    j = LPS[j-1];
+                if(j == patLen){  /// Found a pattern, save and fall back
+                    j = fail[j-1];
+                }
+            }else{
+                if(j != 0){ /// Fall back
+                    j = fail[j-1];
                 }else{
                     i++;
                 }
             }
         }
     }
+
 }kmp;
