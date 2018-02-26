@@ -4,7 +4,7 @@
 /// Call buildZarray()
 /// Note: 0 based array
 
-char s[Size];
+string s;
 int Z[Size];
 
 void buildZarray(int Len){
