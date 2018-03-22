@@ -1,78 +1,72 @@
-#include <bits/stdc++.h>
-using namespace std;
+/**
+    Recurrence: f(n+1) = f(n) + f(n-1)
+    Given: f(0) = a, f(1) = b
+    Matrix Equation: A * X = B
+    A = |1 1| X = |f(0)| B = |f(0) + f(1)|
+        |1 0|     |f(1)|     |     f1    |
+    Find f(n+1) = B = A^n * X
+
+    How To Use?
+    1. Call buildMatrix() and store values accordingly
+    2. Use B = bigMatMod(A, n - 1)
+    3. Use B = multiply(B, X)
+    4. Now, f(n) = B.m[0][0]
+**/
+
+#define MXR 5 /// Change here
+#define MXC 5
 
 struct matrix{
-    LL m[4][4];
+    int R, C;
+    LL m[MXR][MXC];
+    matrix(){}
+    matrix(int r, int c){
+        R = r;
+        C = c;
+    }
+    void clear(int r, int c){
+        R = r;
+        C = c;
+    }
 };
 
 matrix multiply(matrix a, matrix b){
-    matrix t;
-    for(int r = 0;r<4;r++){
-        for(int c = 0;c<4;c++){
-            t.m[r][c] = 0;
-            for(int k = 0;k<4;k++){
-                t.m[r][c] += (a.m[r][k] * b.m[k][c]);
-                t.m[r][c] %= MOD;
+    matrix res(a.R, b.C);
+    for(int r1 = 0; r1<a.R; r1++){
+        for(int c1 = 0; c1<a.C; c1++){
+            res.m[r1][c1] = 0;
+            for(int k = 0; k<a.C; k++){
+                res.m[r1][c1] += (a.m[r1][k]*b.m[k][c1]); /// mod here if needed
             }
         }
     }
-    return t;
+    return res;
 }
 
-matrix bigMod(matrix mat, LL p){
-    if(p == 1) return mat;
+matrix bigMatMod(matrix a, LL p){
+    if(p == 1) return a;
     if(p%2 == 1) {
-        return multiply(mat,bigMod(mat,p-1));
+        return multiply(a, bigMatMod(a, p-1));
     } else {
-        matrix res = bigMod(mat,p/2);
-        return multiply(res,res);
+        matrix res = bigMatMod(a, p/2);
+        return multiply(res, res);
     }
 }
 
-LL a, b, n, c;
-matrix bMat,rMat,A;
+matrix A, B, X;
+LL a, b; /// f(0) = a, f(1) = b
 
-void initMat(){
-        bMat.m[0][0] = a;
-        bMat.m[0][1] = 0;
-        bMat.m[0][2] = b;
-        bMat.m[0][3] = 1;
+void buildMatrix(){
+    /// Set row column accordingly
+    A.clear(2, 2);
+    B.clear(2, 1);
 
-        bMat.m[1][0] = 1;
-        bMat.m[1][1] = 0;
-        bMat.m[1][2] = 0;
-        bMat.m[1][3] = 0;
+    /// Store initial values in the matrix
+    A.m[0][0] = 1;
+    A.m[0][1] = 1;
+    A.m[1][0] = 1;
+    A.m[1][1] = 0;
 
-        bMat.m[2][0] = 0;
-        bMat.m[2][1] = 1;
-        bMat.m[2][2] = 0;
-        bMat.m[2][3] = 0;
-
-        bMat.m[3][0] = 0;
-        bMat.m[3][1] = 0;
-        bMat.m[3][2] = 0;
-        bMat.m[3][3] = 1;
-
-        A.m[0][0] = 0;
-        A.m[1][0] = 0;
-        A.m[2][0] = 0;
-        A.m[3][0] = c;
-}
-
-int main(){
-    int nCase;
-    sf("%d",&nCase);
-    for(int cs = 1;cs<=nCase;cs++){
-        sf("%lld %lld %lld %lld", &n, &a, &b, &c);
-        initMat();
-        if (n <= 2) {
-            printf("Case %d: 0\n",cs);
-        } else {
-            rMat = bigMod(bMat, n - 2);
-            rMat = multiply(rMat,A);
-            int nthVal = rMat.m[0][0];
-            printf("Case %d: %lld\n",cs,nthVal);
-        }
-    }
-    return 0;
+    X.m[0][0] = b;
+    X.m[1][0] = a;
 }
