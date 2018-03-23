@@ -8,8 +8,8 @@
 
     How To Use?
     1. Call buildMatrix() and store values accordingly
-    2. Use B = bigMatMod(A, n - 1)
-    3. Use B = multiply(B, X)
+    2. Find B = bigMatMod(A, n - 1)
+    3. Find B = multiply(B, X)
     4. Now, f(n) = B.m[0][0]
 **/
 
