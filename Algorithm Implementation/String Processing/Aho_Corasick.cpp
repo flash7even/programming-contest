@@ -26,6 +26,7 @@ struct AhoCorasick{
         trie[root].clear();
         root = curNodeId = 0;
         lvlNodes.clear();
+        CLR(qfound,0);
     }
 
     int getname(char ch){
