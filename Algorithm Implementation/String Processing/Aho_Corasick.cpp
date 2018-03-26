@@ -1,13 +1,3 @@
-/**
-    How To Use?
-    1. Properly define the values of the const variables
-    2. Call clear()
-    3. Add each pattern by calling addTrie()
-    4. Call failureFunction() to find failure of each node
-    5. Call findmatching() to find the matching of each patterns
-    6. qfound[i] = Number of times i'th pattern matched
-**/
-
 const int Size = 1000005; /// Maximum Text Length
 const int NODE = 250005; /// Maximum Nodes
 const int MXQ = 505; /// Maximum Patterns
@@ -27,23 +17,21 @@ struct node{
 }trie[NODE];
 
 int qfound[MXQ]; /// How many times i'th pattern matched
-vector<int> lvlNodes[NODE]; /// List of nodes at i'th level
+vector<int> lvlNodes; /// List of nodes sorted by level
 
 struct AhoCorasick{
     int curNodeId, root, fail[NODE], par[NODE];
 
     void clear(){
-        root = curNodeId = 0;
         trie[root].clear();
-        CLR(qfound, 0);
+        root = curNodeId = 0;
+        lvlNodes.clear();
     }
 
     int getname(char ch){
-        if(ch>='a' && ch<='z') return (ch-'a');
-        return (ch-'A') + 26;
+        return (ch-'a');
     }
 
-    /// Parameters(pattern, pattern id)
     void addTrie(string s, int id){
         /// Add string s to the trie in general way
         int len = SZ(s);
@@ -61,12 +49,13 @@ struct AhoCorasick{
         trie[cur].endList.pb(id);
     }
 
-    void failureFunction(){
+    void calcFailFunction(){
         queue<int> Q;
         Q.push(root);
         while(!Q.empty()){
             int s = Q.front();
             Q.pop();
+            lvlNodes.pb(s);
             /// Add all the child to the queue:
             FOR(i,0,MXCHR-1){
                 int t = trie[s].child[i];
@@ -86,7 +75,7 @@ struct AhoCorasick{
             int p = par[s];
             int val = trie[s].val;
             int f = fail[p];
-            /// Fall back till you find a node who has got val as a child
+            /// Fall back till you found a node who has got val as a child
             while(f != 0 && trie[f].child[val] == 0){
                 f = fail[f];
             }
@@ -109,34 +98,17 @@ struct AhoCorasick{
         return trie[f].child[c];
     }
 
-    /// DFS who add all the nodes to their level
-    void pushUpDFS(int u, int lvl){
-        lvlNodes[lvl].pb(u);
-        FOR(i,0,MXCHR-1){
-            int v = trie[u].child[i];
-            if(v != 0){
-                pushUpDFS(v, lvl+1);
-            }
-        }
-    }
-
-    /// Push up all the count from lowest to the highest levels
     void pushUp(){
-        FOR(i,0,NODE-1){
-            lvlNodes[i].clear();
-        }
-        pushUpDFS(0, 0);
-        for(int lvl = MXL-1;lvl>=0;lvl--){
-            FOR(i,0,SZ(lvlNodes[lvl])-1){
-                int u = lvlNodes[lvl][i];
-                int f = fail[u];
-                /// The prefix of my fall back node matches with my suffix
-                /// So every time I match with text, my fall back node also match
-                trie[f].endCnt += trie[u].endCnt;
-                FOR(j,0,SZ(trie[u].endList)-1){
-                    int qid = trie[u].endList[j];
-                    qfound[qid] += trie[u].endCnt;
-                }
+        int len = SZ(lvlNodes);
+        ROF(i,0,len-1){
+            int u = lvlNodes[i];
+            int f = fail[u];
+            /// The prefix of my fall back node matches with my suffix
+            /// So every time i match with text, my fall back node also match
+            trie[f].endCnt += trie[u].endCnt;
+            FOR(j,0,SZ(trie[u].endList)-1){
+                int qid = trie[u].endList[j];
+                qfound[qid] += trie[u].endCnt;
             }
         }
     }
