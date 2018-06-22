@@ -1,7 +1,7 @@
 const int Size = 50005; /// Maximum number of points
 const int LGN = 25; /// log(Size)
 
-/// Given N points find the closest pair of them
+/// Given N points find the closest pair among them
 /// Call cpair.closestPairOfPoints()
 
 struct RET{
