@@ -1,7 +1,3 @@
-/// Include My Code Template
-#include <bits/stdc++.h>
-using namespace std;
-
 int DP[Size][Size];
 
 /** FINDING LCS IN N^2 USING NESTED LOOP **/
@@ -32,8 +28,4 @@ string LCS(string str1, string str2){
         }
     }
     return sb;
-}
-
-int main(){
-    return 0;
 }
