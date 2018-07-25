@@ -22,9 +22,9 @@ string LCS(string str1, string str2){
             i++;
             j++;
         }else if (DP[i + 1][j] >= DP[i][j + 1]){
-        	i++;
+            i++;
         }else{
-        	j++;
+            j++;
         }
     }
     return sb;
