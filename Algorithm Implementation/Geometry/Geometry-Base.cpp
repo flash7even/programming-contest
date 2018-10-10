@@ -92,5 +92,5 @@ Point rotatePoint(Point a, double angle, Point p){
     // translate point back to initial:
     p.x = xnew + a.x;
     p.y = ynew + a.y;
-  return p;
+    return p;
 }
