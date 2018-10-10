@@ -52,14 +52,14 @@ int dotAB(Point A, Point B){
     return (A.x * B.x + A.y * B.y);
 }
 
-///Compute the cross product AB X AC
+/// Compute the cross product AB X AC
 int crossABC(Point A, Point B, Point C) {
     Point AB = Point(B.x - A.x, B.y - A.y); /// AB vector
     Point AC = Point(C.x - A.x, C.y - A.y); /// AC vector
     return crossAB(AB, AC);
 }
 
-///Compute the dot product AB dot BC
+/// Compute the dot product AB dot BC
 int dotABC(Point A, Point B, Point C) {
     Point AB = Point(B.x - A.x, B.y - A.y); /// AB vector
     Point BC = Point(C.x - B.x, C.y - B.y); /// BC vector
