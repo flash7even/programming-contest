@@ -81,16 +81,16 @@ double angelFromAxis(Point P){
 
 /// Rotate the point p by "angle" degree with respect to the point a
 Point rotatePoint(Point a, double angle, Point p){
-  double s = sin(angle);
-  double c = cos(angle);
-  // translate point back to origin:
-  p.x -= a.x;
-  p.y -= a.y;
-  // rotate point
-  double xnew = p.x * c - p.y * s;
-  double ynew = p.x * s + p.y * c;
-  // translate point back to initial:
-  p.x = xnew + a.x;
-  p.y = ynew + a.y;
+    double s = sin(angle);
+    double c = cos(angle);
+    // translate point back to origin:
+    p.x -= a.x;
+    p.y -= a.y;
+    // rotate point
+    double xnew = p.x * c - p.y * s;
+    double ynew = p.x * s + p.y * c;
+    // translate point back to initial:
+    p.x = xnew + a.x;
+    p.y = ynew + a.y;
   return p;
 }
