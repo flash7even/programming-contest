@@ -1,4 +1,5 @@
-# List of problems i have created:
+I have been working on problem setting since 2016. Here are some problems of mine which have been published in different contest platforms.
+
 1. [Non Super Boring Substring](https://algo.codemarshal.org/contests/bacsrpc18/problems/D) (BACS RPC Online Selection Contest 2018)
 2. [Forming Teams](https://www.hackerearth.com/problem/algorithm/forming-teams-b66d2022/) (Hackerearth August Circuits'18)
 3. [Equal Median](https://www.hackerearth.com/practice/basic-programming/implementation/basics-of-implementation/practice-problems/algorithm/equal-median-8aba723b/) (Hackerearth August Circuits'18)
