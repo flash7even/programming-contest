@@ -1,4 +1,4 @@
-I have been working on problem setting since 2016. Here are some problems of mine which have been published in different contest platforms.
+I have been working on problem setting since 2016. Here are some problems of mine which have been published in different contest platforms so far. Please feel free to knock me if you find any issues regarding any of the problems.
 
 1. [Non Super Boring Substring](https://algo.codemarshal.org/contests/bacsrpc18/problems/D) (BACS RPC Online Selection Contest 2018)
 2. [Forming Teams](https://www.hackerearth.com/problem/algorithm/forming-teams-b66d2022/) (Hackerearth August Circuits'18)
