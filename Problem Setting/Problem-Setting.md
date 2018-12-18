@@ -1,5 +1,10 @@
 I have been working on problem setting since 2016. Here are some problems of mine which have been published in different contest platforms so far. Please feel free to knock me if you find any issues regarding any of the problems.
 
+#### HackerEarth HourStorm #6
+1. [Count Special Subsets](https://www.hackerearth.com/problem/algorithm/distinct-distinct-a31c41ec/)
+2. [Resourceful States](https://www.hackerearth.com/problem/algorithm/mission-planet-earth-a4369667/)
+3. [Swapping Positions](https://www.hackerearth.com/practice/basic-programming/implementation/basics-of-implementation/practice-problems/algorithm/mr-x-and-string-4836920e/)
+
 #### BACS RPC Online Selection Contest 2018
 1. [Non Super Boring Substring](https://algo.codemarshal.org/contests/bacsrpc18/problems/D)
 
