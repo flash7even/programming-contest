@@ -1,11 +1,11 @@
 /// Operator Overloading
 struct node {
-	int value;
-	/// Process in decreasing order
-	bool operator <(const node& o) const{
-		if(value<o.value) return true;
-		return false;
-	}
+    int value;
+    /// Process in decreasing order
+    bool operator <(const node& o) const{
+        if(value<o.value) return true;
+        return false;
+    }
 };
 
 /// Min Priority Queue
@@ -25,4 +25,3 @@ bits.set(); /// Set all bits to one
 bits.set(p,1) /// Set p'th bit to 1
 bits.flip(p) /// Flip p'th bit
 /// count() returns no of one bits
-

@@ -1,3 +1,6 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 /// Importing policy_based_data_structure:
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
@@ -12,8 +15,8 @@ struct vals{ /// struct for declaring struct type pb_ds:
         typ = b;
     }
     bool operator <(const vals& other) const {
-		return num > other.num;
-	}
+        return num > other.num;
+    }
 };
 
 /// Supports all the operations of a set including two additional features:
