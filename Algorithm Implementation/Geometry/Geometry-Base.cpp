@@ -73,6 +73,8 @@ double angle(Point A, Point B){
 }
 
 /// Returns angle from positive X
+/// If we consider a line from origin to the point P then this function
+/// returns the angle between the positive X axis and that line.
 double angelFromAxis(Point P){
     double ang = atan2(P.y, P.x);
     if(ang+eps<0.0) ang += 2.0*pi;
