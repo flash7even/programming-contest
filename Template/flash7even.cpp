@@ -55,7 +55,7 @@ typedef vector<vlong> vl;
 typedef vector<pll> vll;
 //typedef tree <int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> pb_ds;
 
-#ifdef forthright48
+#ifdef flash7even
      #include <ctime>
      clock_t tStart = clock();
      #define debug(args...) {dbg,args; cerr<<endl;}
@@ -124,10 +124,10 @@ const double eps = 1e-11;
 
 
 int main () {
-    #ifdef forthright48
+    #ifdef flash7even
     freopen ( "input.txt", "r", stdin );
     //freopen ( "output.txt", "w", stdout );
-    #endif // forthright48
+    #endif // flash7even
 
     //fast_cin;
 
