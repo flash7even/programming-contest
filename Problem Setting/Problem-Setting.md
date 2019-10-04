@@ -1,12 +1,23 @@
 National Contest Problem Setting Under BAPS:
-#### KUET IUPC 2019 ([Contest Link](https://algo.codemarshal.org/contests/kuet-iupc-19))
-1. [Nico’s Birthday Gift](https://algo.codemarshal.org/contests/kuet-iupc-19/problems/J)
+I have been working as a problem setter and judge for BAPS since January, 2019. So far I have created the following problems in different inter university national programming contests in Bangladesh.
+
+#### ICPC Dhaka Regional Preliminary Contest, 2019 ([Contest Link](https://algo.codemarshal.org/contests/icpc-dhaka-19-preli))
+1. [Palindrome Again? Arghh!](https://algo.codemarshal.org/contests/icpc-dhaka-19-preli/problems/E)
 
 #### KUET IUPC 2019 ([Contest Link](https://algo.codemarshal.org/contests/kuet-iupc-19))
 1. [Nico’s Birthday Gift](https://algo.codemarshal.org/contests/kuet-iupc-19/problems/J)
 
+#### DUET IUPC 2019 ([Contest Link](https://algo.codemarshal.org/contests/duet-iupc-19))
+1. [Skill Matching](https://algo.codemarshal.org/contests/duet-iupc-19/problems/H)
 
-I have been working on problem setting since 2016. Here are some problems of mine which have been published in different online and onsite contests so far. Please feel free to knock me if you find any issues regarding any of the problems.
+#### SUB IUPC 2019 ([Contest Link](https://algo.codemarshal.org/contests/sub_iupc_19))
+1. [Smartest Subarray](https://algo.codemarshal.org/contests/sub_iupc_19/problems/D)
+
+#### MIST IUPC 2019 ([Contest Link](https://algo.codemarshal.org/contests/mist-iupc-19))
+1. [Mysterious LCM](https://algo.codemarshal.org/contests/mist-iupc-19/problems/B)
+
+Online contest problem setting:
+I have been working on problem setting since 2016. Here are some problems of mine which have been published in different online and onsite contests so far.
 
 #### HackerEarth HourStorm #6 ([Contest Link](https://www.hackerearth.com/challenge/competitive/hourstorm-6-1/))
 1. [Count Special Subsets](https://www.hackerearth.com/problem/algorithm/distinct-distinct-a31c41ec/)
@@ -34,3 +45,5 @@ I have been working on problem setting since 2016. Here are some problems of min
 
 #### Hackerrank Contests
 I have also created few problems for [Hackerrank](https://hackerrank.com) which is yet to be published in future.
+
+N.B. Please feel free to knock me if you find any issues regarding any of the problems.
