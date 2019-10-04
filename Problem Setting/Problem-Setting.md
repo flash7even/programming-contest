@@ -1,4 +1,4 @@
-### National Contest Problem Setting Under BAPS:
+## National Contest Problem Setting Under BAPS:
 I have been working as a problem setter and judge for BAPS since January, 2019. So far I have created the following problems in different inter university national programming contests in Bangladesh.
 
 #### ACM ICPC Dhaka Regional Preliminary Contest, 2019 ([Contest Link](https://algo.codemarshal.org/contests/icpc-dhaka-19-preli))
@@ -16,7 +16,7 @@ I have been working as a problem setter and judge for BAPS since January, 2019. 
 #### MIST IUPC 2019 ([Contest Link](https://algo.codemarshal.org/contests/mist-iupc-19))
 1. [Mysterious LCM](https://algo.codemarshal.org/contests/mist-iupc-19/problems/B)
 
-### Online Contest & Other Onsite Contest Problem Setting:
+## Online Contest & Other Onsite Contest Problem Setting:
 I have been working on problem setting since 2016. Here are some problems of mine which have been published in different online and onsite contests so far.
 
 #### HackerEarth HourStorm #6 ([Contest Link](https://www.hackerearth.com/challenge/competitive/hourstorm-6-1/))
