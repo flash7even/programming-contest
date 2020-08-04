@@ -1,7 +1,7 @@
-vector<int> prime;
+vector<int> prime; /// List of all the prime numbers till a maximum bound
 
 vector< pair<int,int> > primeFactorize(LL num){
-    vector< pair<int,int> > flist;
+    vector< pair<int,int> > flist; /// Contains the prime factors with frequency
     for(int i = 0;i<prime.size();i++){
         LL pf = prime[i];
         if(pf*pf>num) break;
